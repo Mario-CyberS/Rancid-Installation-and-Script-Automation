@@ -33,6 +33,7 @@ Automation ensures that backups happen consistently without relying on manual in
   <a href="https://shrubbery.net/rancid/" target="_blank"><img src="https://img.shields.io/badge/-Rancid-800000?&style=for-the-badge&logoColor=white" />
   <img src="https://img.shields.io/badge/-Expect-333333?&style=for-the-badge&logo=Linux&logoColor=white" />
   <img src="https://img.shields.io/badge/-Bash_Scripting-4EAA25?&style=for-the-badge&logo=GNU-Bash&logoColor=white" />
+    <img src="https://img.shields.io/badge/-RHEL-EE0000?&style=for-the-badge&logo=Red-Hat&logoColor=white" />
 </div>
 
 ---
