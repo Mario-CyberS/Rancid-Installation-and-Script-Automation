@@ -320,7 +320,7 @@ Execute the script and list the yearly dir again to see that the older file was 
 This will automate the script to run daily at 2 am, check the monthly and yearly directories daily to ensure its running properly
 
 
-### Rancid ASA Config Backups Export Commands
+### Rancid ASA Config Backups (Export Commands)
 - First, ssh into the Wazuh box you need the ASA config backup from via CLI.
 ```bash
 ssh user@<Wazuh-Server-IP>
