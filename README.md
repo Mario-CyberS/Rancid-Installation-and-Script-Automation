@@ -72,7 +72,7 @@ ssh into rancid user on SITE Wazuh box.
 ```bash
 ssh rancid@<Wazuh-Server-IP>
 ```
-Make sure you can access SITE ASA from rancid user via Public Key.
+Access SITE ASA from rancid user via Public Key.
 ```bash
 ssh rancid@<SITE-ASA-IP>
 ```
