@@ -350,7 +350,10 @@ If you are on Windows you can use the pscp command, make sure to change the user
 pscp -scp mtagaras@<Wazuh-Server-IP>:/var/config_backup/SITE-monthly/config-backup-2025-04-01.zip %USERPROFILE%\Desktop
 ```
 
+---
 
+### 👨‍💻 Author
+Mario Tagaras | Florida State University Alum
 
 
 
