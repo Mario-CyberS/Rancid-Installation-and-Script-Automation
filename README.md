@@ -194,7 +194,7 @@ Now create the rest of the Bash Script that will run the rest of the process inc
 # Configuration
 HOST="<SITE-ASA-IP>"
 USER="rancid"
-ENABLE_PASSWORD="pass"
+ENABLE_PASSWORD="password hash"
 BACKUP_DIR="/var/config_backup"
 MONTHLY_DIR="$BACKUP_DIR/SITE-monthly"
 YEARLY_DIR="$BACKUP_DIR/SITE-yearly"
