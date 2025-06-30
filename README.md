@@ -187,7 +187,7 @@ EOF
 ```
 This Expect script will be embedded in the main Bash Script
 
-### Secure Your Enable Password
+### 7. Secure Your Enable Password
 Now to avoid storing sensitive credentials directly in your script, you'll store the enable password securely in a separate environment file with limited read permissions.
 Create a file to store your ASA enable password:
 ```bash
@@ -206,7 +206,7 @@ sudo chmod 600 /home/rancid/backup_scripts/.backup_env
 ```
 This ensures only the rancid user can access the password.
 
-### 7. Create the rest of the Bash Script
+### 8. Create the rest of the Bash Script
 Now create the rest of the Bash Script that will run the rest of the process including retention policy; making the backup directories (monthly and yearly) if not already made; zipping files and removing none zipped files for clean up; copying all backups to daily dir for 30 day retention and every first of the month back up to the yearly dir for yearly retention; deleting files in these dir that are passed their retention period; embed the Expect script into this Bash Script. You can make a dir on your rancid home called “backup_scripts” where this script can live. It’ll be called SITE-ASA-Config-Backups.sh:
 ```bash
 #!/bin/bash
@@ -310,7 +310,7 @@ chmod +x SITE-ASA-Config-Backups.sh
 ```
 - Run it using ./SITE-ASA-Config-Backups.sh , and you should see the config and a success message.
 
-### 8. Now we can test the script
+### 9. Now we can test the script
 - Run the script and ensure you get the “Backup process completed successfully” message
 - We can check the /var/config_backup/SITE-monthly dir to see if our zip config file is there, and check the /var/config_backup/SITE-yearly dir to make sure the same zip was not copied there since today is most likely not the first of the month
 - Now we can test the yearly dir, so change line 10 to show todays date as “2024-01-01”, instead of “%Y-%m-%d” and run this script again. Now check the /var/config_backup/SITE-yearly dir and you should see this new zip in the dir, and you should also see it in the SITE-monthly dir. Make sure to revert the script current date back to original
@@ -335,7 +335,7 @@ ls -l /var/config_backup/SITE-yearly
 ```
 Execute the script and list the yearly dir again to see that the older file was removed and the recent one was kept
 
-### 9. Add this script to our crontab
+### 10. Add this script to our crontab
 - Run this “crontab -e” to edit the crontab, use “i” to insert text, “esc” to stop inserting, and “:wq!” to save and exit the vi editor, and add this to the crontab
 ```bash
 0 2 * * * /home/rancid/backup_scripts/SITE-ASA-Config-Backups.sh
