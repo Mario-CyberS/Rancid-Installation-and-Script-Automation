@@ -102,7 +102,7 @@ sudo dnf install \
 
 ### 5. Make your backup directories
 Make your backup directories and give them the proper permissions
-my main path is /var/config_backup (so cd here)
+my main path is /var/config_backup
 subdirectories:
 ```bash
 sudo mkdir /var/config_backup
@@ -113,7 +113,7 @@ sudo mkdir /var/config_backup/SITE-monthly
 ```bash
 sudo mkdir /var/config_backup/SITE-yearly
 ```
-Make sure you’re in /var directory and run these permission commands
+Make sure to run these permission commands
 ```bash
 sudo chown -R rancid:wheel /var/config_backup
 ```
