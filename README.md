@@ -187,14 +187,36 @@ EOF
 ```
 This Expect script will be embedded in the main Bash Script
 
+### Secure Your Enable Password
+Now to avoid storing sensitive credentials directly in your script, you'll store the enable password securely in a separate environment file with limited read permissions.
+Create a file to store your ASA enable password:
+```bash
+sudo nano /home/rancid/backup_scripts/.backup_env
+```
+Add this to the file:
+```bash
+ENABLE_PASSWORD="yourEnablePasswordHere"
+```
+Save and exit with Ctrl + O, Enter, then Ctrl + X (For nano)
+Then Restrict File Access
+Run:
+```bash
+sudo chown rancid:wheel /home/rancid/backup_scripts/.backup_env
+sudo chmod 600 /home/rancid/backup_scripts/.backup_env
+```
+This ensures only the rancid user can access the password.
+
 ### 7. Create the rest of the Bash Script
 Now create the rest of the Bash Script that will run the rest of the process including retention policy; making the backup directories (monthly and yearly) if not already made; zipping files and removing none zipped files for clean up; copying all backups to daily dir for 30 day retention and every first of the month back up to the yearly dir for yearly retention; deleting files in these dir that are passed their retention period; embed the Expect script into this Bash Script. You can make a dir on your rancid home called “backup_scripts” where this script can live. It’ll be called SITE-ASA-Config-Backups.sh:
 ```bash
 #!/bin/bash
+
+# Load secure environment variables
+source /home/rancid/backup_scripts/.backup_env
+
 # Configuration
 HOST="<SITE-ASA-IP>"
 USER="rancid"
-ENABLE_PASSWORD="password hash"
 BACKUP_DIR="/var/config_backup"
 MONTHLY_DIR="$BACKUP_DIR/SITE-monthly"
 YEARLY_DIR="$BACKUP_DIR/SITE-yearly"
